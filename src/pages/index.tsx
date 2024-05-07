@@ -1,16 +1,11 @@
 import Porta from '@/components/Porta'
 import PortaModel from "../model/porta"
-import { use, useState } from 'react';
+import { useState } from 'react';
+import { atualizarPortas, criarPortas } from '@/functions/portas';
 
-export default function Home() {
-  const [p1, setP1] = useState(new PortaModel(1))
-  const [texto, setTexto] = useState("...")
+export default function Home() {  
   
   return (
-    <div style={{display: "flex", flexDirection: "column"}}>
-      <input type="text" value={texto}/>
-      <Porta value={p1} onChange={novaPorta => setP1(novaPorta)} />
-      {/* <Porta porta={p2} /> */}
-    </div>
-  );
+  <h1>Início do Jogo</h1> 
+  )
 }
