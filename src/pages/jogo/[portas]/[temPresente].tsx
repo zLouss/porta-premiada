@@ -6,7 +6,7 @@ import styles from "@/styles/Jogo.module.css"
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function jogo() {
+export default function Jogo() {
     const router = useRouter()
 
     const [portas, setPortas] = useState<PortaModel[]>([])
@@ -19,7 +19,7 @@ export default function jogo() {
         const temPresenteValido = temPresente >= 1 && temPresente <= portas
 
         setValido(qtdPortasValida && temPresenteValido)
-    }, [portas])
+    }, [portas, router.query.portas, router.query.temPresente])
 
     useEffect(() => {
         const portas = Number(router.query.portas)
@@ -40,7 +40,7 @@ export default function jogo() {
                 {valido ? renderizarPortas() : <h2>Valores inválidos</h2>}
             </div>
             <div className={styles.botoes}>
-                <Link href="/">
+                <Link href="/" passHref>
                     <button>Reiniciar Jogo</button>
                 </Link>
             </div>
